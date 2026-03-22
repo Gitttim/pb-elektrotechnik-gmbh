@@ -3,331 +3,389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PB Elektrotechnik GmbH â Elektriker in MÃ¼nchen</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>PB Elektrotechnik GmbH &ndash; Elektriker in M&uuml;nchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --primary: #1a3a5c;
-    --accent: #f5a623;
-    --light-bg: #f4f7fb;
-    --white: #ffffff;
-    --text: #2d3748;
-    --text-light: #718096;
-    --border: #e2e8f0;
-    --shadow: 0 4px 24px rgba(26,58,92,0.10);
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
-  a { color: inherit; text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#f8f9fa;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--primary);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
-    height: 64px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-  }
-  .nav-brand { color: var(--white); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; }
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-  @media(max-width:640px) { .nav-links { display: none; } }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,25,60,0.97);backdrop-filter:blur(8px);padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:0.5px}
+.nav-logo span{color:#f0a500}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.85);font-size:0.9rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:#f0a500}
+.nav-cta{background:#f0a500;color:#1a1a2e;font-weight:700;font-size:0.85rem;padding:0.45rem 1.2rem;border-radius:6px;transition:background 0.2s}
+.nav-cta:hover{background:#d4920a;color:#fff}
 
-  /* HERO */
-  .hero {
-    margin-top: 64px;
-    background: linear-gradient(135deg, #1a3a5c 0%, #2563a8 60%, #1e4d8c 100%);
-    color: var(--white);
-    padding: 90px 5% 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; top: -80px; right: -80px;
-    width: 340px; height: 340px;
-    background: rgba(245,166,35,0.13);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -60px; left: -60px;
-    width: 240px; height: 240px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 50%;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(245,166,35,0.18);
-    border: 1px solid rgba(245,166,35,0.5);
-    color: var(--accent);
-    padding: 4px 16px;
-    border-radius: 50px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; margin-bottom: 12px; line-height: 1.15; }
-  .hero-sub { font-size: 1.15rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
-  .stars-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 36px; }
-  .stars { color: var(--accent); font-size: 1.5rem; letter-spacing: 2px; }
-  .rating-num { font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.9); }
-  .rating-count { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
-  .hero-cta {
-    display: inline-block;
-    background: var(--accent);
-    color: #1a3a5c;
-    font-weight: 700;
-    padding: 14px 36px;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 18px rgba(245,166,35,0.35);
-  }
-  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,166,35,0.45); }
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:0}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&h=600&fit=crop') center/cover no-repeat;filter:brightness(0.35)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,25,60,0.75) 0%,rgba(0,0,0,0.4) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem 1.5rem;max-width:850px}
+.hero-badge{display:inline-block;background:#f0a500;color:#1a1a2e;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:0.35rem 1rem;border-radius:20px;margin-bottom:1.2rem}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:0.8rem;text-shadow:0 2px 20px rgba(0,0,0,0.5)}
+.hero-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.8);margin-bottom:1.5rem}
+.hero-stars{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.hero-stars .stars{color:#f0a500;font-size:1.6rem;letter-spacing:2px}
+.hero-stars .rating-text{color:#fff;font-size:1rem;font-weight:500;opacity:0.9}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#f0a500;color:#1a1a2e;font-weight:700;font-size:1rem;padding:0.85rem 2rem;border-radius:8px;border:none;cursor:pointer;transition:all 0.2s;display:inline-block}
+.btn-primary:hover{background:#d4920a;transform:translateY(-2px);box-shadow:0 6px 20px rgba(240,165,0,0.4)}
+.btn-outline{background:transparent;color:#fff;font-weight:600;font-size:1rem;padding:0.85rem 2rem;border-radius:8px;border:2px solid rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
 
-  /* SECTIONS */
-  section { padding: 72px 5%; }
-  .section-inner { max-width: 1000px; margin: 0 auto; }
-  .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
-  .section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: var(--primary); margin-bottom: 20px; }
-  .divider { width: 50px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 32px; }
+/* SECTIONS */
+section{padding:5rem 1.5rem}
+.container{max-width:1200px;margin:0 auto}
+.section-label{display:inline-block;background:#e8f0fe;color:#1a4fa8;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:0.3rem 0.9rem;border-radius:20px;margin-bottom:0.8rem}
+.section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#0a193c;margin-bottom:1rem}
+.section-title span{color:#f0a500}
+.divider{width:60px;height:4px;background:linear-gradient(90deg,#f0a500,#d4920a);border-radius:2px;margin-bottom:2rem}
 
-  /* ABOUT */
-  .about { background: var(--light-bg); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  @media(max-width:700px) { .about-grid { grid-template-columns: 1fr; } }
-  .about-text p { color: var(--text-light); margin-bottom: 14px; font-size: 1rem; }
-  .about-features { display: flex; flex-direction: column; gap: 16px; }
-  .feature-card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 20px 24px;
-    display: flex; align-items: flex-start; gap: 16px;
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--accent);
-  }
-  .feature-icon { font-size: 1.6rem; flex-shrink: 0; }
-  .feature-card h4 { font-size: 0.97rem; font-weight: 600; color: var(--primary); margin-bottom: 2px; }
-  .feature-card p { font-size: 0.87rem; color: var(--text-light); }
+/* ABOUT */
+.about{background:#fff}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-image-wrap{position:relative}
+.about-image-wrap img{width:100%;height:420px;object-fit:cover;border-radius:16px;box-shadow:0 16px 50px rgba(0,0,0,0.15)}
+.about-badge{position:absolute;bottom:-18px;right:-18px;background:#0a193c;color:#fff;padding:1rem 1.4rem;border-radius:12px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,0.2)}
+.about-badge .num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800;color:#f0a500;display:block}
+.about-badge .lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;opacity:0.85}
+.about-text p{color:#444;font-size:1rem;line-height:1.8;margin-bottom:1rem}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.5rem}
+.feature-item{display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:500;color:#1a1a2e}
+.feature-item .icon{width:32px;height:32px;background:#fff7e0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 
-  /* HOURS */
-  .hours { background: var(--white); }
-  .hours-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  .hours-table th {
-    background: var(--primary);
-    color: var(--white);
-    padding: 14px 24px;
-    text-align: left;
-    font-size: 0.92rem;
-    font-weight: 600;
-  }
-  .hours-table td { padding: 13px 24px; font-size: 0.93rem; border-bottom: 1px solid var(--border); }
-  .hours-table tr:last-child td { border-bottom: none; }
-  .hours-table tr:nth-child(even) td { background: var(--light-bg); }
-  .hours-note { margin-top: 18px; font-size: 0.88rem; color: var(--text-light); display: flex; align-items: center; gap: 8px; }
+/* HOURS */
+.hours{background:#f0f4ff}
+.hours-card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.08);overflow:hidden;max-width:700px;margin:0 auto}
+.hours-header{background:linear-gradient(135deg,#0a193c,#1a3a7a);padding:1.5rem 2rem;display:flex;align-items:center;gap:1rem}
+.hours-header .icon{font-size:1.8rem}
+.hours-header h3{font-family:'Montserrat',sans-serif;color:#fff;font-size:1.2rem;font-weight:700}
+.hours-header p{color:rgba(255,255,255,0.7);font-size:0.85rem}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr:nth-child(even){background:#f8faff}
+.hours-table td{padding:0.9rem 2rem;font-size:0.95rem;color:#333}
+.hours-table td:first-child{font-weight:600;color:#0a193c;width:50%}
+.hours-table td:last-child{color:#555;text-align:right}
+.hours-note{padding:1rem 2rem;background:#fff7e0;font-size:0.85rem;color:#7a5a00;display:flex;align-items:center;gap:0.5rem}
 
-  /* REVIEWS */
-  .reviews { background: var(--light-bg); }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
-  .review-card {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 28px 26px;
-    box-shadow: var(--shadow);
-    display: flex; flex-direction: column; gap: 14px;
-    position: relative;
-  }
-  .review-card::before {
-    content: '\201C';
-    position: absolute; top: 14px; right: 22px;
-    font-size: 4rem; line-height: 1;
-    color: var(--accent); opacity: 0.18;
-    font-family: Georgia, serif;
-  }
-  .review-stars { color: var(--accent); font-size: 1.1rem; }
-  .review-stars .empty { color: #d1d5db; }
-  .review-text { font-size: 0.93rem; color: var(--text-light); font-style: italic; line-height: 1.65; }
-  .review-author { font-size: 0.85rem; font-weight: 600; color: var(--primary); margin-top: auto; }
-  .overall-rating {
-    display: flex; align-items: center; gap: 18px;
-    background: var(--primary);
-    border-radius: 14px;
-    padding: 24px 30px;
-    margin-bottom: 32px;
-    color: var(--white);
-  }
-  .overall-num { font-size: 3rem; font-weight: 700; color: var(--accent); line-height: 1; }
-  .overall-info p { font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+/* REVIEWS */
+.reviews{background:#fff}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem}
+.review-card{background:#f8f9fa;border-radius:14px;padding:1.8rem;border:1px solid #eee;transition:transform 0.2s,box-shadow 0.2s;position:relative}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(0,0,0,0.1)}
+.review-stars{font-size:1.2rem;margin-bottom:0.8rem;letter-spacing:2px}
+.star-filled{color:#f0a500}
+.star-empty{color:#ddd}
+.review-text{font-size:0.9rem;color:#444;line-height:1.75;margin-bottom:1rem;font-style:italic}
+.review-text::before{content:'\201E';font-size:2.5rem;color:#f0a500;font-family:Georgia,serif;line-height:0;vertical-align:-0.7rem;margin-right:4px}
+.review-meta{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #e8e8e8;padding-top:1rem;margin-top:0.5rem}
+.reviewer-info{display:flex;align-items:center;gap:0.7rem}
+.avatar{width:38px;height:38px;background:linear-gradient(135deg,#0a193c,#1a4fa8);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.9rem;flex-shrink:0}
+.reviewer-name{font-weight:600;font-size:0.88rem;color:#1a1a2e}
+.review-date{font-size:0.78rem;color:#999}
+.rating-summary{background:linear-gradient(135deg,#0a193c,#1a3a7a);border-radius:14px;padding:2rem;text-align:center;color:#fff;margin-bottom:2.5rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.rating-big{font-family:'Montserrat',sans-serif;font-size:4rem;font-weight:800;color:#f0a500;line-height:1}
+.rating-stars-big{font-size:1.5rem;letter-spacing:3px;margin:0.4rem 0}
+.rating-count{font-size:0.85rem;opacity:0.75}
 
-  /* CONTACT */
-  .contact { background: var(--white); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-  @media(max-width:700px) { .contact-grid { grid-template-columns: 1fr; } }
-  .contact-info { display: flex; flex-direction: column; gap: 20px; }
-  .contact-item { display: flex; align-items: flex-start; gap: 16px; }
-  .contact-icon {
-    width: 46px; height: 46px; border-radius: 10px;
-    background: var(--light-bg);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.25rem; flex-shrink: 0;
-  }
-  .contact-item h4 { font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: 4px; }
-  .contact-item p, .contact-item a { font-size: 1rem; color: var(--text); font-weight: 500; }
-  .contact-item a:hover { color: var(--accent); }
-  .cta-box {
-    background: linear-gradient(135deg, #1a3a5c, #2563a8);
-    border-radius: 16px;
-    padding: 40px 36px;
-    color: var(--white);
-    display: flex; flex-direction: column; gap: 18px;
-    justify-content: center;
-  }
-  .cta-box h3 { font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
-  .cta-box p { color: rgba(255,255,255,0.75); font-size: 0.96rem; }
-  .cta-btn {
-    display: inline-block;
-    background: var(--accent);
-    color: #1a3a5c;
-    font-weight: 700;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-size: 1rem;
-    align-self: flex-start;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 14px rgba(245,166,35,0.3);
-  }
-  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(245,166,35,0.45); }
+/* CONTACT */
+.contact{background:linear-gradient(135deg,#0a193c 0%,#1a3a7a 100%)}
+.contact .section-label{background:rgba(240,165,0,0.2);color:#f0a500}
+.contact .section-title{color:#fff}
+.contact .section-title span{color:#f0a500}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info h3{font-family:'Montserrat',sans-serif;color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.contact-icon{width:46px;height:46px;background:rgba(240,165,0,0.15);border:1px solid rgba(240,165,0,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-detail .label{font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.5);margin-bottom:0.2rem}
+.contact-detail .value{font-size:1rem;font-weight:500;color:#fff}
+.contact-detail a{color:#f0a500;font-weight:600;transition:color 0.2s}
+.contact-detail a:hover{color:#ffd166}
+.contact-cta-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:2.5rem;text-align:center}
+.contact-cta-box h3{font-family:'Montserrat',sans-serif;color:#fff;font-size:1.5rem;font-weight:700;margin-bottom:0.7rem}
+.contact-cta-box p{color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:2rem;line-height:1.7}
+.btn-cta{display:inline-block;background:#f0a500;color:#1a1a2e;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;padding:1rem 2.5rem;border-radius:10px;transition:all 0.2s;letter-spacing:0.3px}
+.btn-cta:hover{background:#d4920a;transform:translateY(-2px);box-shadow:0 8px 25px rgba(240,165,0,0.4)}
+.btn-cta-outline{display:inline-block;margin-top:1rem;color:#f0a500;font-size:0.9rem;font-weight:600;border-bottom:1px solid rgba(240,165,0,0.4);padding-bottom:2px;transition:all 0.2s}
+.btn-cta-outline:hover{border-color:#f0a500}
 
-  /* FOOTER */
-  footer {
-    background: #111827;
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 28px 5%;
-    font-size: 0.88rem;
-  }
-  footer span { color: var(--accent); }
+/* FOOTER */
+footer{background:#060d1f;padding:2rem 1.5rem;text-align:center}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-logo{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+.footer-logo span{color:#f0a500}
+.footer-text{color:rgba(255,255,255,0.4);font-size:0.85rem;margin-bottom:0.3rem}
+.footer-divider{width:40px;height:2px;background:#f0a500;border-radius:2px;margin:1rem auto}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+ .about-inner{grid-template-columns:1fr}
+ .about-image-wrap img{height:280px}
+ .about-badge{right:10px;bottom:-10px}
+ .contact-inner{grid-template-columns:1fr}
+ .nav-links{display:none}
+}
+@media(max-width:600px){
+ .rating-summary{gap:1.5rem}
+ .hero-buttons{flex-direction:column;align-items:center}
+ .about-features{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">â¡ PB Elektrotechnik GmbH</div>
-  <div class="nav-links">
-    <a href="#ueber-uns">Ãber uns</a>
-    <a href="#oeffnungszeiten">Ãffnungszeiten</a>
-    <a href="#bewertungen">Bewertungen</a>
-    <a href="#kontakt">Kontakt</a>
-  </div>
+ <div class="nav-inner">
+  <div class="nav-logo">PB <span>Elektrotechnik</span> GmbH</div>
+  <ul class="nav-links">
+   <li><a href="#ueber-uns">&Uuml;ber uns</a></li>
+   <li><a href="#oeffnungszeiten">&Ouml;ffnungszeiten</a></li>
+   <li><a href="#bewertungen">Bewertungen</a></li>
+   <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="tel:+21261190 6395" class="nav-cta">Jetzt anrufen</a>
+ </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Elektriker Â· MÃ¼nchen</div>
-  <h1>PB Elektrotechnik GmbH</h1>
-  <p class="hero-sub">Ihr zuverlÃ¤ssiger Elektriker in Ramersdorf-Perlach, MÃ¼nchen</p>
-  <div class="stars-row">
-    <span class="stars">âââââ</span>
-    <span class="rating-num">3,7 / 5</span>
-    <span class="rating-count">(3 Bewertungen)</span>
+ <div class="hero-bg"></div>
+ <div class="hero-overlay"></div>
+ <div class="hero-content">
+  <div class="hero-badge">&#9889; Elektriker &ndash; M&uuml;nchen</div>
+  <h1 class="hero-title">PB Elektrotechnik GmbH</h1>
+  <p class="hero-subtitle">Ihr zuverl&auml;ssiger Elektrofachbetrieb in Ramersdorf-Perlach &ndash; M&uuml;nchen</p>
+  <div class="hero-stars">
+   <span class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+   <span class="rating-text">3,7 / 5 &ndash; 3 Bewertungen</span>
   </div>
-  <a href="tel:+21261190639" class="hero-cta">ð Jetzt anrufen</a>
+  <div class="hero-buttons">
+   <a href="#kontakt" class="btn-primary">Kontakt aufnehmen</a>
+   <a href="#bewertungen" class="btn-outline">Bewertungen lesen</a>
+  </div>
+ </div>
 </section>
 
-<!-- ÃBER UNS -->
+<!-- &Uuml;BER UNS -->
 <section class="about" id="ueber-uns">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="section-label">Ãber uns</div>
-        <h2 class="section-title">Erfahrene Elektrotechnik aus MÃ¼nchen</h2>
-        <div class="divider"></div>
-        <p>Die PB Elektrotechnik GmbH ist Ihr kompetenter Ansprechpartner fÃ¼r alle Belange rund um Elektrotechnik in MÃ¼nchen und Umgebung. Mit unserem erfahrenen Team bieten wir professionelle Elektroinstallationen, Wartungen und Reparaturen â sowohl fÃ¼r Privatkunden als auch fÃ¼r Gewerbe und Industrie.</p>
-        <p>Unser Standort im MÃ¼nchner Stadtteil Ramersdorf-Perlach ermÃ¶glicht uns eine schnelle und flexible Reaktion auf Ihre Anfragen. QualitÃ¤t, Sicherheit und ZuverlÃ¤ssigkeit stehen bei uns an erster Stelle â dafÃ¼r bÃ¼rgt unser Name.</p>
-      </div>
-      <div class="about-features">
-        <div class="feature-card">
-          <div class="feature-icon">ð</div>
-          <div>
-            <h4>Elektroinstallation</h4>
-            <p>Fachgerechte Installation von Leitungen, Schaltanlagen und Verteilereinrichtungen nach aktueller Norm.</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð¡ï¸</div>
-          <div>
-            <h4>Sicherheitstechnik</h4>
-            <p>ÃberprÃ¼fung, Wartung und Modernisierung Ihrer Elektroanlage fÃ¼r maximale Betriebssicherheit.</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð¡</div>
-          <div>
-            <h4>Beleuchtungstechnik</h4>
-            <p>Planung und Montage energieeffizienter Beleuchtungssysteme fÃ¼r Wohn- und GewerberÃ¤ume.</p>
-          </div>
-        </div>
-      </div>
+ <div class="container">
+  <div class="about-inner">
+   <div class="about-image-wrap">
+    <img src="https://images.unsplash.com/photo-1555963153-11ff60182d08?w=600&h=400&fit=crop" alt="PB Elektrotechnik GmbH &ndash; Elektroarbeiten" loading="lazy">
+    <div class="about-badge">
+     <span class="num">&#9889;</span>
+     <span class="lbl">Fachbetrieb</span>
     </div>
+   </div>
+   <div class="about-text">
+    <span class="section-label">&Uuml;ber uns</span>
+    <h2 class="section-title">Ihr <span>Elektrofachbetrieb</span><br>in M&uuml;nchen</h2>
+    <div class="divider"></div>
+    <p>Die <strong>PB Elektrotechnik GmbH</strong> ist Ihr kompetenter Ansprechpartner f&uuml;r alle elektrotechnischen Arbeiten im Raum M&uuml;nchen. Mit unserem erfahrenen Team aus qualifizierten Elektromeistern und Fachkr&auml;ften bieten wir Ihnen erstklassige Leistungen rund um Elektroinstallationen, Reparaturen und Wartungsarbeiten.</p>
+    <p>Von der einfachen Steckdose bis zur komplexen Industrieinstallation &ndash; wir stehen Ihnen mit unserem Fachwissen und modernem Equipment zur Seite. Als etablierter Betrieb im Stadtteil Ramersdorf-Perlach kennen wir die Bed&uuml;rfnisse unserer Kunden und arbeiten stets zuverl&auml;ssig, sicher und termingerecht.</p>
+    <p>Vertrauen Sie auf unsere Expertise und lassen Sie sich von unserer Qualit&auml;tsarbeit &uuml;berzeugen &ndash; f&uuml;r Privatkunden und Gewerbetreibende gleicherma&szlig;en.</p>
+    <div class="about-features">
+     <div class="feature-item"><span class="icon">&#128268;</span> Elektroinstallation</div>
+     <div class="feature-item"><span class="icon">&#128295;</span> Reparatur &amp; Wartung</div>
+     <div class="feature-item"><span class="icon">&#127968;</span> Privatkunden</div>
+     <div class="feature-item"><span class="icon">&#127970;</span> Gewerbekunden</div>
+     <div class="feature-item"><span class="icon">&#9888;</span> Sicherheitspr&uuml;fung</div>
+     <div class="feature-item"><span class="icon">&#128161;</span> Beleuchtungstechnik</div>
+    </div>
+   </div>
   </div>
+ </div>
 </section>
 
-<!-- ÃFFNUNGSZEITEN -->
+<!-- &Ouml;FFNUNGSZEITEN -->
 <section class="hours" id="oeffnungszeiten">
-  <div class="section-inner">
-    <div class="section-label">Ãffnungszeiten</div>
-    <h2 class="section-title">Wann Sie uns erreichen</h2>
-    <div class="divider"></div>
-    <table class="hours-table">
-      <thead>
-        <tr>
-          <th>Tag</th>
-          <th>Ãffnungszeiten</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Montag</td><td>Auf Anfrage</td></tr>
-        <tr><td>Dienstag</td><td>Auf Anfrage</td></tr>
-        <tr><td>Mittwoch</td><td>Auf Anfrage</td></tr>
-        <tr><td>Donnerstag</td><td>Auf Anfrage</td></tr>
-        <tr><td>Freitag</td><td>Auf Anfrage</td></tr>
-        <tr><td>Samstag</td><td>Auf Anfrage</td></tr>
-        <tr><td>Sonntag</td><td>Geschlossen</td></tr>
-      </tbody>
-    </table>
-    <p class="hours-note">ð Bitte rufen Sie uns an oder kontaktieren Sie uns fÃ¼r aktuelle Terminvereinbarungen.</p>
+ <div class="container">
+  <div style="text-align:center;margin-bottom:2.5rem">
+   <span class="section-label">&Ouml;ffnungszeiten</span>
+   <h2 class="section-title">Wann Sie uns <span>erreichen</span></h2>
+   <div class="divider" style="margin:0 auto"></div>
   </div>
+  <div class="hours-card">
+   <div class="hours-header">
+    <span class="icon">&#128336;</span>
+    <div>
+     <h3>Unsere Gesch&auml;ftszeiten</h3>
+     <p>PB Elektrotechnik GmbH &ndash; M&uuml;nchen Ramersdorf-Perlach</p>
+    </div>
+   </div>
+   <table class="hours-table">
+    <tr><td>Montag</td><td>Auf Anfrage</td></tr>
+    <tr><td>Dienstag</td><td>Auf Anfrage</td></tr>
+    <tr><td>Mittwoch</td><td>Auf Anfrage</td></tr>
+    <tr><td>Donnerstag</td><td>Auf Anfrage</td></tr>
+    <tr><td>Freitag</td><td>Auf Anfrage</td></tr>
+    <tr><td>Samstag</td><td>Auf Anfrage</td></tr>
+    <tr><td>Sonntag</td><td>Geschlossen</td></tr>
+   </table>
+   <div class="hours-note">&#8505;&#65039;&nbsp;F&uuml;r aktuelle &Ouml;ffnungszeiten und Terminvereinbarungen bitte direkt anrufen.</div>
+  </div>
+ </div>
 </section>
 
 <!-- BEWERTUNGEN -->
 <section class="reviews" id="bewertungen">
-  <div class="section-inner">
-    <div class="section-label">Kundenbewertungen</div>
-    <h2 class="section-title">Was unsere Kunden sagen</h2>
-    <div class="divider"></div>
-    <div class="overall-rating">
-      <div class="overall-num">3,7</div>
-      <div class="overall-info">
-        <div style="color:#f5a623;font-size:1.3rem;">âââââ</div>
-        <p>Basierend auf 3 Google-Bewertungen</p>
-      </div>
+ <div class="container">
+  <div style="text-align:center;margin-bottom:1.5rem">
+   <span class="section-label">Kundenbewertungen</span>
+   <h2 class="section-title">Was unsere <span>Kunden</span> sagen</h2>
+   <div class="divider" style="margin:0 auto"></div>
+  </div>
+  <div class="rating-summary">
+   <div>
+    <div class="rating-big">3,7</div>
+    <div class="rating-stars-big"><span style="color:#f0a500">&#9733;&#9733;&#9733;</span><span style="color:rgba(255,255,255,0.3)">&#9734;&#9734;</span></div>
+    <div class="rating-count">von 5 Sternen</div>
+   </div>
+   <div style="color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:300px;text-align:left">
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem"><span style="color:#f0a500;font-size:1.1rem">&#9733;&#9733;&#9733;&#9733;&#9733;</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden"><div style="width:67%;height:100%;background:#f0a500;border-radius:3px"></div></div><span>2</span></div>
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem"><span style="color:#f0a500;font-size:1.1rem">&#9733;&#9734;&#9734;&#9734;&#9734;</span><div style="flex:1;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden"><div style="width:33%;height:100%;background:#f0a500;border-radius:3px"></div></div><span>1</span></div>
+   </div>
+   <div>
+    <div style="color:rgba(255,255,255,0.85);font-size:0.9rem;text-align:center">
+     <div style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#f0a500">3</div>
+     <div>Bewertungen</div>
+     <div style="margin-top:0.5rem;font-size:0.75rem;opacity:0.6">Google Bewertungen</div>
     </div>
-    <div class="reviews-grid">
-      <!-- Review 1 -->
-      <div class="review-card">
-        <div class="review-stars">â<span class="empty">ââââ</span></div>
-        <p class="review-text">âIch habe versucht einen Termin fÃ¼r eine Dienstleistung auszumachen. Das erste Telefonat war freundlich, es wurde mir zugesichert, der Kollege ruft mich an, um einen Termin auszumachen. Ich habe nach dem RÃ¼ckruf leider nicht mehr gehÃ¶rtâ¦
+   </div>
+  </div>
+
+  <div class="reviews-grid">
+
+   <!-- Review 1: 1 star -->
+   <div class="review-card">
+    <div class="review-stars">
+     <span class="star-filled">&#9733;</span><span class="star-empty">&#9734;</span><span class="star-empty">&#9734;</span><span class="star-empty">&#9734;</span><span class="star-empty">&#9734;</span>
+    </div>
+    <p class="review-text">Ich habe versucht einen Termin f&uuml;r eine Dienstleistung auszumachen. Das erste Telefonat war freundlich, es wurde mir zugesichert, der Kollege ruft mich an, um einen Termin auszumachen. Ich habe nach dem Telefonat eine Nachricht geschickt, in der ich nur noch nach dem Preis gefragt habe, da ich das im Gespr&auml;ch vergessen hatte. Ich habe schnelle Antwort bekommen. Der Mitarbeiter hat mich aber nicht angerufen. Also habe ich erneut nachgefragt. Da hie&szlig; es, es wurde auf meine Best&auml;tigung gewartet wegen dem Preis. Also habe ich best&auml;tigt und wieder gewartet. Wieder hat sich keiner gemeldet. Also habe ich erneut Hr. Popov angerufen. Dieser hat mir zugesichert, dass sein Mitarbeiter mich noch am selben Tag zur&uuml;ckruft. Der Mitarbeiter hat mich tats&auml;chlich angerufen. Einen Termin konnten wir allerdings nicht vereinbaren, da er seine Termine noch nicht planen konnte. Er sagte, er w&uuml;rde sich bei mir am Montag melden, da er dann w&uuml;&szlig;te, wie seine Auftragslage w&auml;re. Leider hat am Montag wieder keiner angerufen. Absolut unprofessionell und nicht zu empfehlen. Ich habe mittlerweile ein anderes Unternehmen beauftragt, welches deutlich unkomplizierter und g&uuml;nstiger gearbeitet hat.</p>
+    <div class="review-meta">
+     <div class="reviewer-info">
+      <div class="avatar">K</div>
+      <div>
+       <div class="reviewer-name">Kunde</div>
+       <div class="review-date">Google Bewertung</div>
+      </div>
+     </div>
+     <span style="font-size:0.75rem;color:#e74c3c;font-weight:600">1 Stern</span>
+    </div>
+   </div>
+
+   <!-- Review 2: 5 stars -->
+   <div class="review-card">
+    <div class="review-stars">
+     <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span>
+    </div>
+    <p class="review-text">Perfekte Arbeit. Nette freundliche Betreuung. Eine echte Empfehlung</p>
+    <div class="review-meta">
+     <div class="reviewer-info">
+      <div class="avatar">K</div>
+      <div>
+       <div class="reviewer-name">Kunde</div>
+       <div class="review-date">Google Bewertung</div>
+      </div>
+     </div>
+     <span style="font-size:0.75rem;color:#27ae60;font-weight:600">5 Sterne</span>
+    </div>
+   </div>
+
+   <!-- Review 3: 5 stars -->
+   <div class="review-card">
+    <div class="review-stars">
+     <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span>
+    </div>
+    <p class="review-text" style="color:#aaa;font-style:italic;font-size:0.88rem">(Keine Textbewertung vorhanden)</p>
+    <div class="review-meta">
+     <div class="reviewer-info">
+      <div class="avatar">K</div>
+      <div>
+       <div class="reviewer-name">Kunde</div>
+       <div class="review-date">Google Bewertung</div>
+      </div>
+     </div>
+     <span style="font-size:0.75rem;color:#27ae60;font-weight:600">5 Sterne</span>
+    </div>
+   </div>
+
+  </div>
+ </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+ <div class="container">
+  <div class="contact-inner">
+   <div class="contact-info">
+    <span class="section-label">Kontakt</span>
+    <h2 class="section-title">Jetzt <span>Kontakt</span> aufnehmen</h2>
+    <div class="divider"></div>
+    <h3>So erreichen Sie uns</h3>
+    <div class="contact-item">
+     <div class="contact-icon">&#128205;</div>
+     <div class="contact-detail">
+      <div class="label">Adresse</div>
+      <div class="value">Oskar-Maria-Graf-Ring 9<br>81737 M&uuml;nchen, Deutschland<br><em style="font-size:0.85rem;color:rgba(255,255,255,0.55)">Ramersdorf-Perlach</em></div>
+     </div>
+    </div>
+    <div class="contact-item">
+     <div class="contact-icon">&#128222;</div>
+     <div class="contact-detail">
+      <div class="label">Telefon</div>
+      <div class="value"><a href="tel:+21261190 6395">+212 6 11 90 63 95</a></div>
+     </div>
+    </div>
+    <div class="contact-item">
+     <div class="contact-icon">&#127970;</div>
+     <div class="contact-detail">
+      <div class="label">Kategorie</div>
+      <div class="value">Elektriker &ndash; Elektrotechnik</div>
+     </div>
+    </div>
+    <div class="contact-item">
+     <div class="contact-icon">&#9889;</div>
+     <div class="contact-detail">
+      <div class="label">Bewertung</div>
+      <div class="value"><span style="color:#f0a500">&#9733;&#9733;&#9733;</span> 3,7 / 5 (3 Bewertungen)</div>
+     </div>
+    </div>
+   </div>
+   <div class="contact-cta-box">
+    <div style="font-size:3rem;margin-bottom:0.8rem">&#128222;</div>
+    <h3>Termin vereinbaren</h3>
+    <p>Kontaktieren Sie uns f&uuml;r eine kostenlose Erstberatung und ein unverbindliches Angebot f&uuml;r Ihre Elektroarbeiten in M&uuml;nchen und Umgebung.</p>
+    <a href="tel:+21261190 6395" class="btn-cta">&#128222;&nbsp;&nbsp;Jetzt anrufen</a>
+    <br>
+    <span style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:1rem;display:inline-block">+212 6 11 90 63 95</span>
+    <br>
+    <a href="#ueber-uns" class="btn-cta-outline">&Uuml;ber uns erfahren &rarr;</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-inner">
+  <div class="footer-logo">PB <span>Elektrotechnik</span> GmbH</div>
+  <div class="footer-divider"></div>
+  <p class="footer-text">Oskar-Maria-Graf-Ring 9 &bull; 81737 M&uuml;nchen &bull; Ramersdorf-Perlach</p>
+  <p class="footer-text">Tel: <a href="tel:+21261190 6395" style="color:rgba(255,255,255,0.45)">+212 6 11 90 63 95</a></p>
+  <div class="footer-divider"></div>
+  <p class="footer-text">&copy; 2026 PB Elektrotechnik GmbH. Alle Rechte vorbehalten.</p>
+  <p style="color:rgba(255,255,255,0.25);font-size:0.75rem;margin-top:0.4rem">Elektriker &bull; M&uuml;nchen &bull; Professionelle Elektrotechnik</p>
+ </div>
+</footer>
+
+</body>
+</html>
